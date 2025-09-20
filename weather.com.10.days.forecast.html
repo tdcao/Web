@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Forecast Carousel</title>
+<title>10-Day Forecast</title>
 <style>
   html, body {
     margin: 0;
@@ -56,22 +56,35 @@
 </style>
 </head>
 <body>
-  <!-- div class="caption" id="caption">Day 1 Forecast</div -->
-  <img id="carousel" src="https://s.w-x.co/staticmaps/DCT_SPECIAL93_1280x720.jpg">
-  <!-- div class="controls" id="controls">
+  <div class="caption" id="caption">Today's Forecast</div>
+  <img id="carousel" src="https://s.w-x.co/staticmaps/us_wxhi1_1280x720.jpg">
+  <div class="controls" id="controls">
     <button id="prevBtn" onclick="prevImage()" disabled>⬅️</button>
     <button id="nextBtn" onclick="nextImage()">➡️</button>
-  </div -->
+  </div>
 
 <script>
   const images = [
-    { url: "https://s.w-x.co/staticmaps/DCT_SPECIAL93_1280x720.jpg", caption: "Day 1 Forecast" },
-    { url: "https://s.w-x.co/staticmaps/DCT_SPECIAL94_1280x720.jpg", caption: "Day 2 Forecast" },
-    { url: "https://s.w-x.co/staticmaps/DCT_SPECIAL95_1280x720.jpg", caption: "Day 3 Forecast" },
-    { url: "https://s.w-x.co/staticmaps/DCT_SPECIAL96_1280x720.jpg", caption: "Day 4 Forecast" },
-    { url: "https://s.w-x.co/staticmaps/DCT_SPECIAL97_1280x720.jpg", caption: "Day 5 Forecast" },
-    { url: "https://s.w-x.co/staticmaps/DCT_SPECIAL98_1280x720.jpg", caption: "Day 6 Forecast" },
-    { url: "https://s.w-x.co/staticmaps/DCT_SPECIAL92_1280x720.jpg", caption: "Day 7 Forecast" }
+    { url: "https://s.w-x.co/staticmaps/us_wxhi1_1280x720.jpg", caption: "Today's Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxlo1_1280x720.jpg", caption: "Tonight's Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxhi2_1280x720.jpg", caption: "Day 2 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxlo2_1280x720.jpg", caption: "Night 2 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxhi3_1280x720.jpg", caption: "Day 3 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxlo3_1280x720.jpg", caption: "Night 3 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxhi4_1280x720.jpg", caption: "Day 4 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxlo4_1280x720.jpg", caption: "Night 4 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxhi5_1280x720.jpg", caption: "Day 5 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxlo5_1280x720.jpg", caption: "Night 5 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxhi6_1280x720.jpg", caption: "Day 6 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxlo6_1280x720.jpg", caption: "Night 6 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxhi7_1280x720.jpg", caption: "Day 7 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxlo7_1280x720.jpg", caption: "Night 7 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxhi8_1280x720.jpg", caption: "Day 8 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxlo8_1280x720.jpg", caption: "Night 8 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxhi9_1280x720.jpg", caption: "Day 9 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxlo9_1280x720.jpg", caption: "Night 9 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxhi10_1280x720.jpg", caption: "Day 10 Forecast" },
+    { url: "https://s.w-x.co/staticmaps/us_wxlo10_1280x720.jpg", caption: "Night 10 Forecast" }
   ];
 
   let index = 0;
@@ -98,7 +111,6 @@
 
   // Toggle controls on tap/click
   document.body.addEventListener("click", e => {
-    // Don't toggle if clicking on a button
     if (e.target.tagName === "BUTTON") return;
     controlsVisible = !controlsVisible;
     controls.style.opacity = controlsVisible ? 1 : 0;
@@ -122,7 +134,7 @@
       let distance = Math.sqrt(dx*dx + dy*dy);
       if (initialDistance === null) initialDistance = distance;
       let factor = distance / initialDistance;
-      scale = Math.min(Math.max(1, factor), 4); // limit zoom 1x-4x
+      scale = Math.min(Math.max(1, factor), 4);
       imgElement.style.transform = "scale(" + scale + ")";
     }
   });
